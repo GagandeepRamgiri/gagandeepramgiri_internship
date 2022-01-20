@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"> -->
+
+    <title>List of User</title>
+   
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+    <div class="container pt-4 pb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">CRUD <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="create">Create</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+        
+    <main role="main" class="flex-shrink-0">
+        <div class="container" style="padding-top:20px; background-color:rgb(232, 245, 48); border-radius:10px; width:500px; height:110%; box-shadow: 8px 8px 8px rgb(0,0,0,0.4);">
+
+            
+            <center><h1>Edit User</h1></center>
+            <form action="/updateuser/{{user.id}}" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group" style="padding-top: 5px; padding: bottom 5px;">
+                    <center>
+                    <!-- <label >Name</label> -->
+                    <input type="text" name="name" value="{{user.uname}}" class="form-control" style="width: 250px; box-shadow: 8px 8px 8px rgb(0,0,0,0.2);"  placeholder="Enter name">
+                    </center></div>
+                <div class="form-group" style="padding-top: 5px; padding: bottom 5px;">
+                    <center>
+                    <!-- <label >Email</label> -->
+                    <input type="Email" name="email" value="{{user.email}}" class="form-control" style="width: 250px; box-shadow: 8px 8px 8px rgb(0,0,0,0.2);" placeholder="Enter Email">
+                </center></div>
+                <div class="form-group" style="padding-top: 5px; padding: bottom 5px;">
+                    <center>
+                        <!-- <label >Country</label>  -->
+                    <input type="text" name="country" value="{{user.country}}" class="form-control" style="width: 250px; box-shadow: 8px 8px 8px rgb(0,0,0,0.2);" placeholder="Enter Country">
+                </center></div>
+                <div class="form-group" style="padding-top: 5px; padding: bottom 5px;">
+                    <center>
+                        <!-- <label >State</label> -->
+                    <input type="text" name="state" value="{{user.state}}" class="form-control" style="width: 250px; box-shadow: 8px 8px 8px rgb(0,0,0,0.2);" placeholder="Enter State">
+                </center></div>
+                <div class="form-group" style="padding-top: 5px; padding: bottom 5px;">
+                    <center>
+                        <!-- <label >City</label> -->
+                    <input type="text" name="city" value="{{user.city}}" class="form-control" style="width: 250px; box-shadow: 8px 8px 8px rgb(0,0,0,0.2);" placeholder="Enter City">
+                </center></div>
+                <center><button type="submit" class="btn btn-primary pm-3" style="box-shadow: 8px 8px 8px rgb(0,0,0,0.4);">Submit</button> </center>
+
+            </form>
+        </div>
+    </main>
+      
+    
+
+    
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
