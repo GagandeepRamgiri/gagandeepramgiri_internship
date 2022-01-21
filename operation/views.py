@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import crud
+from django.core.mail import send_mail
 from qrcode import *
 
 # Create your views here.
@@ -21,6 +22,7 @@ def addusers(request):
     stateValue = request.POST.get("state")
     cityValue = request.POST.get("city")
     crud(uname=nameValue,email=emailValue,country=countryValue,state=stateValue,city=cityValue).save()
+    send_mail("Your Data has been successfully stored","Hello {0},\n This is an test mail generated through code,\n Thank you... ".format(nameValue),"bunnygaganbunny@gmail.com",[emailValue],fail_silently=False)
     return redirect('index')
 
 def edit(request,id):
